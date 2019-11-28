@@ -5,8 +5,8 @@ author：zp
 
 ## 代码补全
 输入模板名.将列出该模块下所有接口
-![](./img/buquan.png)
+![buquan](https://github.com/zhouFear/vscode-pluin/blob/master/img/buquan.png)
 
 ## 代码提示
 点击entsdk下模块的接口hover几秒钟后弹出提示
-![](./img/tips.png)
+![tips](https://github.com/zhouFear/vscode-pluin/blob/master/img/tips.png)
