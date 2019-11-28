@@ -5,9 +5,6 @@ import * as Pattern from './auto_match';
 var StrategyPatternImp: any = NaN;
 
 /**
- * 自动提示实现，这里模拟一个很简单的操作
- * 当输入 this.dependencies.xxx时自动把package.json中的依赖带出来
- * 当然这个例子没啥实际意义，仅仅是为了演示如何实现功能
  * @param {*} document 
  * @param {*} position 
  * @param {*} token 
@@ -43,6 +40,10 @@ export default function(context :vscode.ExtensionContext) {
   // 注册代码建议提示，只有当按下“.”时才触发
   console.log('自动补全插件已加载。');
 	context.subscriptions.push(vscode.languages.registerCompletionItemProvider('vue', {
+		provideCompletionItems,
+		resolveCompletionItem
+  }, '.'));
+  context.subscriptions.push(vscode.languages.registerCompletionItemProvider('javascript', {
 		provideCompletionItems,
 		resolveCompletionItem
 	}, '.'));

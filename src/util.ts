@@ -2,6 +2,20 @@ import * as vscode from 'vscode';
 
 export module uilt {
 
+  var DEFAULT_KEYWORDS: any = {
+    "http://": {
+      text: "http://",
+      color: '#fff',
+      backgroundColor: 'red',
+      overviewRulerColor: 'red'
+    }
+  };
+
+  var DEFAULT_STYLE = {
+    color: "#2196f3",
+    backgroundColor: "#ffeb3b",
+  };
+
   export function getProjectPath(document: any): string {
     if (!document) {
       document = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.document : null;
@@ -42,4 +56,33 @@ export module uilt {
     }
     return path;
   };
+
+  export function escapeRegExp(s: string): string {
+    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+  }
+
+  function getAssembledData(keywords: any, customDefaultStyle:any, isCaseSensitive:any) {
+    var result: any;
+    keywords.forEach((v: any) => {
+        v = typeof v == 'string' ? { text: v } : v;
+        var text: string = v.text;
+        if (!text) return;//NOTE: in case of the text is empty
+
+        if (!isCaseSensitive) {
+            text = text.toUpperCase();
+        }
+
+        if (text == 'http://') {
+            v = Object.assign({}, DEFAULT_KEYWORDS[text], v);
+        }
+        result[text] = Object.assign({}, DEFAULT_STYLE, customDefaultStyle, v);
+    })
+
+    Object.keys(DEFAULT_KEYWORDS).forEach((v) => {
+        if (!result[v]) {
+            result[v] = Object.assign({}, DEFAULT_STYLE, customDefaultStyle, DEFAULT_KEYWORDS[v]);
+        }
+    });
+    return result;
+  }
 }

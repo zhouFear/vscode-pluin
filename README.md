@@ -5,8 +5,13 @@ author：zp
 
 ## 代码补全
 输入模板名.将列出该模块下所有接口
-![buquan](https://github.com/zhouFear/vscode-pluin/blob/master/img/buquan.png)
+
+![buquan](https://raw.githubusercontent.com/zhouFear/vscode-pluin/master/img/buquan.png)
 
 ## 代码提示
 点击entsdk下模块的接口hover几秒钟后弹出提示
-![tips](https://github.com/zhouFear/vscode-pluin/blob/master/img/tips.png)
+
+![tips](https://raw.githubusercontent.com/zhouFear/vscode-pluin/master/img/tips.png)
+
+## 非法字符检测
+对文件类的非法字符进行检测，目前只支持http://检测

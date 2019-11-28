@@ -37,4 +37,8 @@ export default function(context :vscode.ExtensionContext) {
     context.subscriptions.push(vscode.languages.registerHoverProvider('vue', {
         provideHover
     }));
+
+    context.subscriptions.push(vscode.languages.registerHoverProvider('javascript', {
+      provideHover
+  }));
 };

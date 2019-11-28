@@ -3,16 +3,23 @@
   "displayName": "entauto",
   "publisher": "zp1012",
 	"description": "ent",
-	"version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/zhouFear/vscode-pluin.git"
+	},
 	"engines": {
-		"vscode": "^1.40.0"
+		"vscode": "^1.32.0"
 	},
 	"categories": [
 		"Other"
-	],
+  ],
+  "keywords": ["http://"],
 	"activationEvents": [
     "onCommand:extension.helloWorld",
-    "onLanguage:vue"
+    "onLanguage:vue",
+    "onLanguage:javascript",
+    "*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -22,7 +29,24 @@
 				"title": "Hello World"
 			}
 		]
-	},
+  },
+  "configuration": {
+    "type": "object",
+    "title": "entauto",
+    "properties":{
+      "entauto.keywords":{
+        "type": "array",
+        "description": "Customize keywords and colors. Any css color identifier is valid.",
+        "items": {
+          "anyOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  },
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
@@ -34,7 +58,7 @@
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.40.0",
+		"@types/vscode": "^1.32.0",
 		"glob": "^7.1.5",
 		"mocha": "^6.2.2",
 		"typescript": "^3.6.4",
