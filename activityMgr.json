@@ -1,0 +1,14 @@
+{
+  "activityMgr": {
+    "isInit": "",
+    "init": "初始化活动信息",
+    "getActivityFirstData": "",
+    "getActivityCacheIsOpen": "",
+    "getActivityCacheData": "",
+    "getActFromId": "",
+    "doInitServerInfo": "",
+    "updateScene": "",
+    "dealwithActBannerOpenModuleMsg": "",
+    "onPkInfo": ""
+  }
+}
