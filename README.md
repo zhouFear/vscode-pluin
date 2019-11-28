@@ -14,4 +14,6 @@ author：zp
 ![tips](https://raw.githubusercontent.com/zhouFear/vscode-pluin/master/img/tips.png)
 
 ## 非法字符检测
-对文件类的非法字符进行检测，目前只支持http://检测
+对文件类的非法字符进行检测，目前只支持http://检测,检测到非法字符会有高亮显示，右下角会出现错误弹窗
+
+![check](https://raw.githubusercontent.com/zhouFear/vscode-pluin/master/img/check.png)

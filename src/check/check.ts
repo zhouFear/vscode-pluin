@@ -48,10 +48,10 @@ export default function (context: vscode.ExtensionContext): void {
         range: new vscode.Range(startPos, endPos)
       };
       if (match.length > 0) {
-        window.showErrorMessage(`检测到你的代码里有非法字符：${match[0]},line:${startPos.line},character:${startPos.character}`);
+        window.showErrorMessage(`检测到你的代码里有非法字符：${match[0]},line:${startPos.line+1},character:${startPos.character+1}`);
       }
       if (!mathes) {
-        mathes = [decoration];
+        mathes.push(decoration);
       }
 
     }
