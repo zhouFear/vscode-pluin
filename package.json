@@ -1,68 +1,77 @@
 {
-	"name": "entauto",
+  "name": "entauto",
   "displayName": "entauto",
   "publisher": "zp1012",
-	"description": "ent",
+  "description": "ent",
   "version": "1.0.0",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/zhouFear/vscode-pluin.git"
-	},
-	"engines": {
-		"vscode": "^1.32.0"
-	},
-	"categories": [
-		"Other"
+    "type": "git",
+    "url": "https://github.com/zhouFear/vscode-pluin.git"
+  },
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "categories": [
+    "Other"
   ],
-  "keywords": ["http://"],
-	"activationEvents": [
+  "keywords": [
+    "http://"
+  ],
+  "activationEvents": [
     "onCommand:extension.helloWorld",
     "onLanguage:vue",
     "onLanguage:javascript",
     "*"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			}
-		]
-  },
-  "configuration": {
-    "type": "object",
-    "title": "entauto",
-    "properties":{
-      "entauto.keywords":{
-        "type": "array",
-        "description": "Customize keywords and colors. Any css color identifier is valid.",
-        "items": {
-          "anyOf": [
-            {
-              "type": "string"
-            }
-          ]
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "extension.openEntdoc",
+        "title": "打开娱乐模版文档"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.openEntdoc",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "entauto",
+      "properties": {
+        "entauto.keywords": {
+          "type": "array",
+          "description": "Customize keywords and colors. Any css color identifier is valid.",
+          "items": {}
         }
       }
     }
   },
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.32.0",
-		"glob": "^7.1.5",
-		"mocha": "^6.2.2",
-		"typescript": "^3.6.4",
-		"tslint": "^5.20.0",
-		"vscode-test": "^1.2.2"
-	}
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.32.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "tslint": "^5.20.0",
+    "vscode-test": "^1.2.2"
+  }
 }

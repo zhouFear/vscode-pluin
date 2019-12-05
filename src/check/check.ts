@@ -51,6 +51,8 @@ export default function (context: vscode.ExtensionContext): void {
         window.showErrorMessage(`检测到你的代码里有非法字符：${match[0]},line:${startPos.line+1},character:${startPos.character+1}`);
       }
       if (!mathes) {
+        mathes=[decoration];
+      } else {
         mathes.push(decoration);
       }
 

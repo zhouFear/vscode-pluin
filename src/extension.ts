@@ -24,11 +24,14 @@ export function activate(context: vscode.ExtensionContext) {
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World!');
   });
-  
 
+  let openEntdoc = vscode.commands.registerCommand('extension.openEntdoc', () => {
+    vscode.env.openExternal(vscode.Uri.parse('http://entdoc.yypm.io/#/')).then((success)=>{
+      console.log(success);
+    });
+  });
 
-
-
+context.subscriptions.push(openEntdoc);
 	context.subscriptions.push(disposable);
 }
 
