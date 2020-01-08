@@ -3,7 +3,7 @@
   "displayName": "entauto",
   "publisher": "zp1012",
   "description": "ent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/zhouFear/vscode-pluin.git"
@@ -25,6 +25,18 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "languages": [
+			{
+				"id": "vue",
+				"aliases": [
+					"Vue",
+					"vue"
+				],
+				"extensions": [
+					".vue"
+				]
+			}
+		],
     "commands": [
       {
         "command": "extension.helloWorld",
@@ -33,6 +45,10 @@
       {
         "command": "extension.openEntdoc",
         "title": "打开娱乐模版文档"
+      },
+      {
+        "command": "extension.yss",
+        "title": "yss编译"
       }
     ],
     "menus": {
@@ -40,6 +56,11 @@
         {
           "when": "editorFocus",
           "command": "extension.openEntdoc",
+          "group": "navigation"
+        },
+        {
+          "when": "editorFocus",
+          "command": "extension.yss",
           "group": "navigation"
         }
       ]

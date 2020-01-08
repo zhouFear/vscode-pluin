@@ -7,9 +7,11 @@ export default function (context: vscode.ExtensionContext): void {
   var activeEditor = window.activeTextEditor;
   var settings: vscode.WorkspaceConfiguration = workspace.getConfiguration('entauto');
   init(settings);
-  var pattern: any;
+  var pattern: RegExp;
   var isCaseSensitive: any;
   var timeout: any;
+  var output: vscode.OutputChannel | undefined = undefined;
+  var termal: vscode.Terminal | undefined = undefined;
 
   window.onDidChangeActiveTextEditor(function (editor) {
     activeEditor = editor;
@@ -30,17 +32,20 @@ export default function (context: vscode.ExtensionContext): void {
 
 
   function updateDecorations() {
-
     if (!activeEditor || !activeEditor.document) {
       return;
     }
 
+    if (!output) output = window.createOutputChannel('entauto');
+
     if (activeEditor.document.languageId != 'vue' &&
-    activeEditor.document.languageId != 'javascript' &&
-    activeEditor.document.languageId != 'css') return;
+      activeEditor.document.languageId != 'javascript' &&
+      activeEditor.document.languageId != 'css') return;
 
     var text = activeEditor.document.getText();
-    var mathes: any, match: any;
+    var mathes: Array<vscode.Range> | undefined = undefined;
+    var match: RegExpExecArray | null;
+
     while (match = pattern.exec(text)) {
       var startPos = activeEditor.document.positionAt(match.index);
       var endPos = activeEditor.document.positionAt(match.index + match[0].length);
@@ -48,12 +53,16 @@ export default function (context: vscode.ExtensionContext): void {
         range: new vscode.Range(startPos, endPos)
       };
       if (match.length > 0) {
-        window.showErrorMessage(`检测到你的代码里有非法字符：${match[0]},line:${startPos.line+1},character:${startPos.character+1}`);
+        // window.showErrorMessage(`检测到你的代码里有非法字符：${match[0]},line:${startPos.line+1},character:${startPos.character+1}`, ).then(() => {
+        //   console.log('dianji');
+        // });
+        output.appendLine(`检测到你的代码里有非法字符：'${match[0]}',${activeEditor.document.fileName}:${startPos.line + 1}:${startPos.character + 1}`);
+        // window.showErrorMessage(`检测到你的代码里有非法字符(${match[0]}):${activeEditor.document.fileName}:${startPos.line+1}:${startPos.character+1}`);
       }
       if (!mathes) {
-        mathes=[decoration];
+        mathes = [decoration.range];
       } else {
-        mathes.push(decoration);
+        mathes.push(decoration.range);
       }
 
     }
@@ -77,7 +86,7 @@ export default function (context: vscode.ExtensionContext): void {
     if (keyWords) {
 
     } else {
-      pattern = 'http://';
+      pattern = new RegExp('http://');
     }
     isCaseSensitive = false;
     pattern = new RegExp(pattern, 'gi');
