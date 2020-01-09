@@ -84,7 +84,7 @@ export default function (context: vscode.ExtensionContext): void {
   function init(settings: vscode.WorkspaceConfiguration): void {
     const keyWords: any = settings.get('keywords');
     if (keyWords) {
-
+      pattern = new RegExp(keyWords[0]);
     } else {
       pattern = new RegExp('http://');
     }

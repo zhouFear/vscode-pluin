@@ -26,17 +26,17 @@
   "main": "./out/extension.js",
   "contributes": {
     "languages": [
-			{
-				"id": "vue",
-				"aliases": [
-					"Vue",
-					"vue"
-				],
-				"extensions": [
-					".vue"
-				]
-			}
-		],
+      {
+        "id": "vue",
+        "aliases": [
+          "Vue",
+          "vue"
+        ],
+        "extensions": [
+          ".vue"
+        ]
+      }
+    ],
     "commands": [
       {
         "command": "extension.helloWorld",
@@ -72,7 +72,13 @@
         "entauto.keywords": {
           "type": "array",
           "description": "Customize keywords and colors. Any css color identifier is valid.",
-          "items": {}
+          "default": ["http://"],
+          "items": {
+            "anyOf": [{
+              "type":"string",
+              "dependencies": ""
+            }]
+          }
         }
       }
     }
