@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 // const util = require('../util');
 import * as Pattern from './auto_match';
+import translate from './translate'; 
 
 var StrategyPatternImp: any = NaN;
 
@@ -21,6 +22,7 @@ function provideCompletionItems(document :vscode.TextDocument, position :vscode.
   }
 
   if (StrategyPatternImp && lineText.length > 0) {
+    translate(lineText, position);
     return StrategyPatternImp.doWork(lineText);
   }
 }

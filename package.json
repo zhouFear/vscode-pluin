@@ -4,6 +4,7 @@
   "publisher": "zp1012",
   "description": "ent",
   "version": "1.0.1",
+  "license": "SEE LICENSE IN REDME",
   "repository": {
     "type": "git",
     "url": "https://github.com/zhouFear/vscode-pluin.git"
@@ -72,12 +73,16 @@
         "entauto.keywords": {
           "type": "array",
           "description": "Customize keywords and colors. Any css color identifier is valid.",
-          "default": ["http://"],
+          "default": [
+            "http://"
+          ],
           "items": {
-            "anyOf": [{
-              "type":"string",
-              "dependencies": ""
-            }]
+            "anyOf": [
+              {
+                "type": "string",
+                "dependencies": ""
+              }
+            ]
           }
         }
       }

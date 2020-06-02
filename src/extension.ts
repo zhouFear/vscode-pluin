@@ -5,7 +5,10 @@ import auto from './auto/auto_completion'
 import tips from './tips/tips';
 import check from './check/check';
 
+const fs = require('fs');
+
 let termal: vscode.Terminal | undefined = undefined;
+let output: vscode.OutputChannel | undefined = undefined;
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -14,9 +17,13 @@ export function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
   console.log('Congratulations, your extension "entauto" is now active!');
+  if (!termal) termal = vscode.window.createTerminal('yyent');
+  if (!output) output = vscode.window.createOutputChannel('yyent');
+  termal.sendText('echo off', true);
+
   auto(context);
   tips(context);
-  check(context);
+  check(context, output, termal);
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
@@ -34,20 +41,18 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   // 右键yss编译
-  if (!termal) termal = vscode.window.createTerminal('yss');
-  const fileName: string | undefined = vscode.window.activeTextEditor?.document.fileName;
-  const index: Number | undefined = fileName?.indexOf('\\pc\\');
-  let dir: string | undefined = undefined;
-  if (index) {
-    dir = fileName?.substring(0, +index + 4);
-  }
+  const pcPath = `${vscode.workspace.rootPath}\\pc\\`;
 
   let yssCommand = vscode.commands.registerCommand('extension.yss', () => {
-    if (dir != '') {
-      termal?.sendText(`cd ${dir}`, true);
-      termal?.sendText('yss d', true);
-      termal?.show();
-    }
+    fs.exists(pcPath, (exists: any) => {
+      if (exists) {
+        termal?.sendText(`cd ${pcPath}`, true);
+        termal?.sendText('yss d', true);
+        termal?.show();
+      } else {
+        vscode.window.showErrorMessage('当前根目录下不存在pc文件夹');
+      }
+    });
   });
 
   context.subscriptions.push(openEntdoc);

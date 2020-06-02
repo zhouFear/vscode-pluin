@@ -1,0 +1,20 @@
+{
+  "pack": {
+    "arrayBuffer": "",
+    "toString": "",
+    "writeByte": "",
+    "writeBytes": "",
+    "writeShort": "",
+    "writeInt": "",
+    "writeUint32": "",
+    "writeLong": "",
+    "writeDouble": "",
+    "writeString": "",
+    "writeMapStringStringObj": "",
+    "writeListMapStringStringObj": "",
+    "writeMapUintUintObj": "",
+    "writeMapStringUintObj": "",
+    "writeMapUint16StringObj": "",
+    "writeSetUint32": ""
+  }
+}

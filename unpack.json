@@ -1,0 +1,27 @@
+{
+  "unpack": {
+    "arrayBuffer": "",
+    "readByte": "",
+    "readBytes": "",
+    "readShort": "",
+    "readInt": "",
+    "readUint32": "",
+    "readDouble": "",
+    "readUint64": "",
+    "readLong": "",
+    "readULong": "",
+    "readString": "",
+    "readString32": "",
+    "readMapStringStringObj": "",
+    "readMapUintUintObj": "",
+    "readMapUintIntObj": "",
+    "readMapStringUintObj": "",
+    "readMapUintStringObj": "",
+    "readListMapStringString": "",
+    "readMapUint32MapStringString": "",
+    "readListStringObj": "",
+    "readMapUint16StringObj": "",
+    "readListMapUintUint": "",
+    "readMapUint32StringObj": ""
+  }
+}
