@@ -1,0 +1,27 @@
+{
+  "entServer": {
+    "onLaunched": "频道加载完成\nonLaunched: function(callback)",
+    "onMaixuChanged": "监听麦序变化\n entServer.onMaixuChanged(callback)\ncallback=(oldUid, newUid)=>{}",
+    "onChannelChanged": "子频道变化回调\nentServer.onChannelChanged((newSid)=>{\n// newSid, 新的子频道ID\n// 可以从entData中拿uid、anchorid、topcid、subcid等\n})",
+    "onSendMessage": "onSendMessage: function(msgName, callback)",
+    "onTaskCmd": "原生taskCmd命令回调\nentServer.onTaskCmd('cmd', (jsonInfo)=> {\n// jsonInfo...\n})",
+    "registerServerMsg": "注册YYP协议\nlet type = {\nappId: 0, // appid, 一般填0，原生会自动判断，测试环境是25112，线上是15012\nmoduleId: 2200, // 模块ID，如果没有就填0\nmaxType: 2013, // 大类\nminType: 2 // 小类\n};\n\nentServer.registerServerMsg(type, (binary_data)=>{\n// 要使用具体的YYP协议进行解码binary_data\n});",
+    "registerModuleMsg": "注册模块间消息\nentServer.registerModuleMsg(\n800035, // id\n(binary_data)=> { // 回调\n// 要使用具体的YYP协议进行解码binary_data\n}\n);",
+    "registerWebMessage": "注册网页间通信消息\nentServer.registerWebMessage(\n'http://www.yy.com/web/pcwebhost/index.html', // type, 唯一，一般用自己的URL\n(data)=> { // 回调\n}\n);",
+    "registMusicReadyCallback": "registMusicReadyCallback: function(callback)",
+    "registLayoutChangedCallback": "registLayoutChangedCallback: function(callback)",
+    "getTicket": "获取ticket\nentServer.getTicket((ticket)=> {\n// ticket\n});",
+    "addCallbackWithName": "addCallbackWithName: function(theMap, theName, theCallback)",
+    "onSceneLaunched": "onSceneLaunched: function()",
+    "sendMessage": "sendMessage: function(msgName)",
+    "onServerBinaryData": "onServerBinaryData: function(appId, moduleId, maxType, minType, binary_string)",
+    "onModuleBinaryData": "onModuleBinaryData: function(msgId, msgName, binary_string)",
+    "onTemplateTask": "onTemplateTask: function(cmd, data_string)",
+    "onTemplateData": "onTemplateData: function(jsonObj)",
+    "onTicketArrived": "onTicketArrived: function(ticketStr)",
+    "sendServerMsg": "sendServerMsg: function(type, msg)",
+    "isSelfAnchor": "自己是否是主播（首麦）\n需要先调用一下entServer.onMaixuChanged(()=>{});并等回调回来\nentServer.isSelfAnchor()",
+    "doMusicReady": "doMusicReady: function()",
+    "channelLayoutChanged": "channelLayoutChanged: function(data)"
+  }
+}

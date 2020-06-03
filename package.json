@@ -3,7 +3,7 @@
   "displayName": "entauto",
   "publisher": "zp1012",
   "description": "ent",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "SEE LICENSE IN REDME",
   "repository": {
     "type": "git",
@@ -50,6 +50,18 @@
       {
         "command": "extension.yss",
         "title": "yss编译"
+      },
+      {
+        "command": "extension.mdn",
+        "title": "MDN搜索"
+      },
+      {
+        "command": "extension.baidu",
+        "title": "百度搜索"
+      },
+      {
+        "command": "extension.google",
+        "title": "谷歌搜索"
       }
     ],
     "menus": {
@@ -57,15 +69,36 @@
         {
           "when": "editorFocus",
           "command": "extension.openEntdoc",
-          "group": "navigation"
+          "group": "navigation@1"
         },
         {
           "when": "editorFocus",
           "command": "extension.yss",
-          "group": "navigation"
+          "group": "navigation@2"
+        },
+        {
+          "when": "editorFocus",
+          "command": "extension.mdn",
+          "group": "navigation@3"
+        },
+        {
+          "when": "editorFocus",
+          "command": "extension.baidu",
+          "group": "navigation@4"
+        },
+        {
+          "when": "editorFocus",
+          "command": "extension.google",
+          "group": "navigation@5"
         }
       ]
     },
+    "snippets": [
+      {
+          "language": "javascript",
+          "path": "./snippets/javascript.json"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "entauto",

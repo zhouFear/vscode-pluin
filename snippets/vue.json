@@ -1,0 +1,20 @@
+{
+    "vue": {
+        "prefix": "actinit",
+        "body": [
+            "activityMgr.init({",
+            "  actid: ${1},",
+            "  canPrintLog: false,",
+            "  updateCallback: (json) => {",
+            "    ${2}",
+            "  },",
+            "  delayCallback: (ms) => {",
+            "    ${3}",
+            "  }",
+            "  visibleCallback: (visible) => {",
+            "    ${4}",
+            "  }"
+        ],
+        "description": "初始化活动"
+    }
+}

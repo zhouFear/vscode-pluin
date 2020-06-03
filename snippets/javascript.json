@@ -1,0 +1,149 @@
+{
+  "maixu": {
+    "prefix": "maixu",
+    "body": [
+      "entServer.onMaixuChanged((oldUid, newUid) => {",
+      "  $1",
+      "});"
+    ],
+    "description": "麦序变化"
+  },
+  "rsm": {
+    "prefix": "rsm",
+    "body": [
+      "entServer.registerServerMsg(${1:yyp.PCrossPKMVPPunishSelectNotifyType}, (binary_string) => {",
+      "  const msg = new ${2:yyp.PCrossPKMVPPunishSelectNotify}()",
+      "  ${3}",
+      "});"
+    ],
+    "description": "注册服务端消息"
+  },
+  "rmm": {
+    "prefix": "rmm",
+    "body": [
+      "entServer.registerModuleMsg('${1:messagename}', (binary_string) => {",
+      "  ${2:}",
+      "});"
+    ],
+    "description": "注册模块间消息"
+  },
+  "ajax": {
+    "prefix": "ajax",
+    "body": [
+      "utils.ajax({",
+      "  url: $1,",
+      "  jsonpCallback: '${2:callback}',",
+      "  data: {$3},",
+      "  success: (json) => {",
+      "  $4",
+      "  },",
+      "  error: (error) => {",
+      "  $5",
+      "  }",
+      "});"
+    ],
+    "description": "ajax请求"
+  },
+  "ajaxjsonp": {
+    "prefix": "ajaxjsonp",
+    "body": [
+      "utils.ajaxJsonp({",
+      "  url: $1,",
+      "  jsonpCallback: '${2:callback}',",
+      "  data: {$3},",
+      "  success: (json) => {",
+      "  $4",
+      "  },",
+      "  error: (error) => {",
+      "  $5",
+      "  }",
+      "});"
+    ],
+    "description": "ajaxjsonp请求"
+  },
+  "taskcmd": {
+    "prefix": "taskcmd",
+    "body": [
+      "entServer.onTaskCmd('exparam', data => {",
+      "  window.console.log('recv exparam:', data);",
+      "  ${1}",
+      "});",
+      "entServer.onSceneLaunched();"
+    ],
+    "description": "网页透传回调"
+  },
+  "initact": {
+    "prefix": "initact",
+    "body": [
+      "activityMgr.init({",
+      "  actid: ${1},",
+      "  canPrintLog: false,",
+      "  updateCallback: (json) => {",
+      "    ${2}",
+      "  },",
+      "  delayCallback: (ms) => {",
+      "    ${3}",
+      "  },",
+      "  visibleCallback: (visible) => {",
+      "    ${4}",
+      "  }",
+      "});"
+    ],
+    "description": "初始化活动"
+  },
+  "initactrb": {
+    "prefix": "initactrb",
+    "body": [
+      "activityMgr.init({",
+      "  actid: ${1:12000},",
+      "  canPrintLog: false,",
+      "  isRightBottom: true,",
+      "  rightBottomWidth: ${2:120},",
+      "  rightBottomAnchor: 'Left:${4:-55}|Left:${5:177}|Bottom:${6:140}|Bottom:${7:0}',",
+      "  updateCallback: (json) => {",
+      "    ${8}",
+      "  },",
+      "  delayCallback: (ms) => {",
+      "    ${9}",
+      "  },",
+      "  visibleCallback: (visible) => {",
+      "    ${10}",
+      "  },",
+      "});"
+    ],
+    "description": "初始化右下角活动"
+  },
+  "opencw": {
+    "prefix": "opencw",
+    "body": [
+      "entTemplate.openCenterWebWindow(",
+      "  `${window.location.protocol}//web.yy.com/${1}/${2}.html`,",
+      "  ${3:false},",
+      "  ${4:100},",
+      "  ${5:100},",
+      "  ${6:''});"
+    ],
+    "description": "打开居中弹窗"
+  },
+  "msgbox": {
+    "prefix": "msgbox",
+    "body": [
+      "const data = {",
+      "  title: '${1: 标题}',",
+      "  contentText: '${2: 内容}',",
+      "  key: '${3:key}',",
+      "};",
+      "let url = `${window.location.protocol}//www.yy.com/web/pc_commonpage/msgbox.html?data=`;",
+      "url = `${url}${encodeURIComponent(JSON.stringify(data))}`;",
+      "entTemplate.openCenterWebWindow(url, false, 436, 196, '');"
+    ],
+    "description": "打开通用弹窗"
+  },
+  "entlog": {
+    "prefix": "entlog",
+    "body": [
+      "entTemplate.entLogBase64('${1:key}', '${2:content}');"
+    ],
+    "description": "写ent日志"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "utils": {
+    "numToChn": "文字转中文\nnumToChn(num)",
+    "sectionToChinese": "定义在每个小节的内部进行转化的方法，其他部分则与小节内部转化方法相同\nsectionToChinese(section)",
+    "TransformToChinese": "定义整个数字全部转换的方法，需要依次对数字进行10000为单位的取余，\n然后分成小节，按小节计算，当每个小节的数不足1000时，则需要进行补零\nTransformToChinese(num)",
+    "getUrlParam": "获取url参数\ngetUrlParam(key)",
+    "decodeBase64": "decodeBase64(str)",
+    "base64_utf8_encode": "base64编码（先转UTF8，再BASE64）\nbase64_utf8_encode: function(input)",
+    "base64_utf8_decode": "base64解码（先BASE64，再转UTF8）\nbase64_utf8_decode: function(input)",
+    "base64_encode": "base64编码\nbase64_encode: function(input)",
+    "base64_decode": "base64解码\nbase64_decode: function(input)",
+    "utf8_encode": "utf8编码\nutf8_encode: function(string)",
+    "utf8_decode": "utf8解码\nutf8_decode: function(utftext)",
+    "ajax": "utils.ajax(request)",
+    "ajaxJson": "utils.ajaxJson(request)",
+    "ajaxJsonp": "jsonp请求\nutils.ajaxJsonp(request)",
+    "thousandPoint": "千分位数字（不能是浮点数）\nutils.thousandPoint('123456')",
+    "cutShortString": "cutShortString: function(ctx, str, fontDesc, length)",
+    "isClickTooFask": "是否点击太快了(1.5s间隔)\n需要填key值以表明不同的点击\nif (utils.isClickTooFask('refresh')) {\n return; \n}",
+    "isOnline": "是否在线\nutils.isOnline((online)=> {})"
+  }
+}
