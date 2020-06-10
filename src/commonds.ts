@@ -58,10 +58,16 @@ export default function(context: vscode.ExtensionContext, termal: vscode.Termina
     });
   });
 
+  let npmiCommand = vscode.commands.registerCommand('extension.npmi', () => {
+    termal?.sendText('npm i --registry=https://npm-registry.yy.com', true);
+    termal?.show();
+  });
+
   context.subscriptions.push(openEntdoc);
   context.subscriptions.push(disposable);
   context.subscriptions.push(yssCommand);
   context.subscriptions.push(mdn);
   context.subscriptions.push(baidu);
   context.subscriptions.push(google);
+  context.subscriptions.push(npmiCommand);
 };

@@ -37,7 +37,7 @@ export module Strategy {
     constructor(document :vscode.TextDocument) {
       super(document);
       this.regex = new RegExp('.*?(entTemplate)');
-      this.sourcePath = '../../entTemplate.json';
+      this.sourcePath = '../../config/entTemplate.json';
       this.key = 'temp';
       this.json = JSON.parse(JSON.stringify(require(this.sourcePath)));
     }
@@ -47,7 +47,7 @@ export module Strategy {
     constructor(document :any) {
       super(document);
       this.regex = new RegExp('.*?(entData)');
-      this.sourcePath = '../../entData.json';
+      this.sourcePath = '../../config/entData.json';
       this.key = 'entData';
       this.json = JSON.parse(JSON.stringify(require(this.sourcePath)));
     }
@@ -57,7 +57,7 @@ export module Strategy {
     constructor(document :any) {
       super(document);
       this.regex = new RegExp('.*?(activityMgr)');
-      this.sourcePath = '../../activityMgr.json';
+      this.sourcePath = '../../config/activityMgr.json';
       this.key = 'activityMgr';
       this.json = JSON.parse(JSON.stringify(require(this.sourcePath)));
     }
@@ -67,7 +67,7 @@ export module Strategy {
     constructor(document :any) {
       super(document);
       this.regex = new RegExp('.*?(entServer)');
-      this.sourcePath = '../../entServer.json';
+      this.sourcePath = '../../config/entServer.json';
       this.key = 'entServer';
       this.json = JSON.parse(JSON.stringify(require(this.sourcePath)));
     }
@@ -77,7 +77,7 @@ export module Strategy {
     constructor(document :any) {
       super(document);
       this.regex = new RegExp('.*?(utils)');
-      this.sourcePath = '../../utils.json';
+      this.sourcePath = '../../config/utils.json';
       this.key = 'utils';
       this.json = JSON.parse(JSON.stringify(require(this.sourcePath)));
     }
